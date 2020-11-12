@@ -105,11 +105,20 @@ Alternatively, if you do not wish to subclass the Autocomplete controller, you c
 <li role="option" data-autocomplete-value="1" data-autocomplete-content="Tweet Tweet">Blackbird</li>
 ```
 
+You can also specify additional data to pass along during the `autocomplete.change` event:
+
+```html
+<li role="option" data-autocomplete-value="1" data-autocomplete-data="{ any: 'data' }">Blackbird</li>
+```
+
+NOTE the `data-autocomplete-data` attribute is not parsed, so you can pass any form of data you wish.
+
+
 ## Events
 
 * `autocomplete.change` fires when the users selects a new value from the autocomplete
 field. The event `detail` contains the `value` and `textValue` properties of the
-selected result.
+selected result, as well as any value in the `data-autocomplete-data` attribute.
 * `autocomplete.focus` fires when the input field is focused.
 * `autocomplete.blur` fires when the input field is blurred.
 * `loadstart` fires before the autocomplete fetches the results from the server.

@@ -135,6 +135,7 @@ export default class extends Controller {
 
     const textValue = selected.textContent.trim()
     const value = selected.getAttribute('data-autocomplete-value') || textValue
+    const data = selected.getAttribute('data-autocomplete-data') || ""
 
     this.onSelect(selected, textValue, value)
 
@@ -147,7 +148,7 @@ export default class extends Controller {
 
     this.element.dispatchEvent(new CustomEvent('autocomplete.change', {
       bubbles: true,
-      detail: { value: value, textValue: textValue }
+      detail: { value: value, textValue: textValue, data: data }
     }))
 
     this.inputTarget.focus()
